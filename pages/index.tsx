@@ -47,7 +47,7 @@ const HomePage = ({ initialUsers, totalPages }: HomePageProps) => {
     } else {
       setFilteredUsers(users);
     }
-  }, [searchTerm, users]);
+  }, [searchTerm, users,page]);
 
   const debouncedSearch = debounce((term: string) => {
     setSearchTerm(term);
@@ -84,7 +84,7 @@ const HomePage = ({ initialUsers, totalPages }: HomePageProps) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [loading, totalPages]);
+  }, [loading, totalPages, page]);
 
   return (
     <div>
